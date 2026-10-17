@@ -1,0 +1,31 @@
+[
+  { "id": "calabaza-4-5", 
+    "name": "Arena Calabaza 4.5 kg", 
+    "category": "arenas", 
+    "price": 12000, 
+    "emoji": "🎃", 
+    "description": "Arena aglomerante para gatos. Controla el olor y forma bloques firmes fáciles de retirar." 
+  },
+  { "id": "calabaza-10", 
+    "name": "Arena Calabaza 10 kg", 
+    "category": "arenas", "price": 30000, 
+    "emoji": "🎃", 
+    "description": "El empaque rendidor para hogares con uno o más gatos." 
+  },
+  { "id": "calabaza-25", 
+    "name": "Arena Calabaza 25 kg", 
+    "category": "arenas", 
+    "price": 57000, 
+    "emoji": "🎃", 
+    "description": "La presentación más económica por kilo, ideal para varios gatos." 
+  },
+  { "id": "calabaza-carbon", 
+    "name": "Arena Calabaza Carbon Activado 4.5kg", 
+    "category":"arenas", 
+    "price": 14000, 
+    "emoji":"🎃", 
+    "image":"/img/productos/carbon4kilos.jpg",
+    "hasAromas": false,
+    "description": "Arena aglomerante para gatos con carbón activado, Controla eficazmente el olor y forma bloques firmes fáciles de retirar."  
+  }
+]

@@ -1,0 +1,7 @@
+<article class="card">
+  <%- include('carousel', { p, auto: true }) %>
+  <a class="card-link" href="/productos/<%= p.id %>"><h3><%= p.name %></h3></a>
+  <p class="price"><%= money(p.price) %></p>
+  <p class="pay-mini">💵 Pago contra entrega</p>
+  <form method="post" action="/carrito/agregar/<%= p.id %>"><button class="btn">Agregar al carrito</button></form>
+</article>

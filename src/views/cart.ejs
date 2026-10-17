@@ -1,0 +1,41 @@
+<%- include('partials/head') %>
+<div class="announce">💵 Pago contra entrega · 🚚 Domicilio solo en Bogotá, localidad de Kennedy</div>
+<section class="wrap"><h1>Tu pedido</h1>
+<% if (!items.length) { %>
+  <p>Tu carrito está vacío.</p><a class="btn" href="/productos">Ver arenas</a>
+<% } else { %>
+<p>Elige el aroma y la cantidad de cada arena. Pon 0 para quitarla.</p>
+<form method="post" action="/carrito/guardar">
+  <% items.forEach(i => { %>
+  <div class="line" data-line>
+    <%- include('partials/carousel', { p: i.product, current: i.aroma?.id }) %>
+    <div>
+      <h2><%= i.product.name %></h2>
+      <% if (i.aroma) { %>
+      <label>Aroma
+        <select name="aroma_<%= i.uid %>" data-aroma-select>
+          <% aromas.forEach(a => { %><option value="<%= a.id %>" <%= a.id === i.aroma.id ? 'selected' : '' %>><%= a.name %></option><% }) %>
+        </select>
+      </label>
+      <% } else if (i.product.aromaLabel) { %>
+      <p class="fixed-aroma">Aroma: <b><%= i.product.aromaLabel %></b></p>
+      <% } %>
+      <label>Cantidad
+        <input type="number" min="0" max="99" name="qty_<%= i.uid %>" value="<%= i.qty %>">
+      </label>
+      <p class="price"><%= money(i.subtotal) %></p>
+      <div class="line-actions">
+        <% if (i.aroma) { %>
+        <button class="link" formaction="/carrito/duplicar/<%= i.uid %>">Agregar otro aroma de este peso</button>
+        <% } %>
+        <button class="link" formaction="/carrito/quitar/<%= i.uid %>">Quitar</button>
+      </div>
+    </div>
+  </div>
+  <% }) %>
+  <button class="btn">Actualizar pedido</button>
+</form>
+<p class="total">Total: <b><%= money(total) %></b></p>
+<a class="btn" href="<%= waUrl %>" target="_blank" rel="noopener">Pedir por WhatsApp</a>
+<% } %></section>
+<%- include('partials/foot') %>

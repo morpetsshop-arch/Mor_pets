@@ -1,0 +1,9 @@
+[
+  { "id": "cafe", "name": "Café", "src": "/img/productos/cafe4kilos.jpg" },
+  { "id": "lavanda", "name": "Lavanda", "src": "/img/productos/lavanda4kilos.jpg" },
+  { "id": "vainilla", "name": "Vainilla", "src": "/img/productos/vainilla4kilos.jpg" },
+  { "id": "talco-bebe", "name": "Talco bebé", "src": "/img/productos/talcobebe4kilos.jpg" },
+  { "id": "manzana", "name": "Manzana", "src": "/img/productos/manzana4kilos.jpg" },
+  { "id": "rosa", "name": "Rosa", "src": "/img/productos/rosa4kilos.jpg" },
+  { "id": "jazmin", "name": "Jazmín", "src": "/img/productos/jazmin4kilos.jpg" }
+]

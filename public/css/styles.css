@@ -1,0 +1,479 @@
+/* ==========================================
+   1. VARIABLES & RESET
+   ========================================== */
+:root {
+  --navy: #0b2a6b;
+  --pink: #f0146e;
+  --cyan: #14b8d4;
+  --paper: #fff8fb;
+  --font: 'Fredoka', system-ui, sans-serif;
+  --hand: 'Kalam', cursive;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font: 400 1.05rem/1.6 var(--font);
+  color: var(--navy);
+  background: var(--paper);
+}
+
+/* ==========================================
+   2. TIPOGRAFÍA & ELEMENTOS BASE
+   ========================================== */
+h1, h2, h3 {
+  font-weight: 700;
+  line-height: 1.1;
+  margin: 0 0 0.6em;
+}
+
+h1 {
+  font-size: clamp(2.2rem, 6vw, 4rem);
+}
+
+h2 {
+  font-size: 2rem;
+}
+
+a {
+  color: inherit;
+}
+
+.tag {
+  font: 700 1.6rem var(--hand);
+  color: var(--pink);
+}
+
+.soon {
+  font-family: var(--hand);
+  font-size: 1.4rem;
+  margin-top: 2rem;
+}
+
+/* ==========================================
+   3. ACCESIBILIDAD & NAVEGACIÓN
+   ========================================== */
+:focus-visible {
+  outline: 3px solid var(--cyan);
+  outline-offset: 3px;
+}
+
+.skip {
+  position: absolute;
+  left: -999px;
+}
+
+.skip:focus {
+  left: 1rem;
+  top: 1rem;
+  background: #fff;
+  padding: 0.5rem;
+  z-index: 9;
+}
+
+.top {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0.5rem 1.5rem;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+}
+
+.brand img {
+  height: 120px;
+  display: block;
+}
+
+nav {
+  display: flex;
+  gap: 1.5rem;
+  font-weight: 600;
+}
+
+nav a {
+  text-decoration: none;
+}
+
+nav a:hover {
+  color: var(--pink);
+}
+
+.cart b {
+  background: var(--pink);
+  color: #fff;
+  border-radius: 99px;
+  padding: 0.05rem 0.55rem;
+  font-size: 0.85rem;
+}
+
+/* ==========================================
+   4. LAYOUT & SECCIONES PRINCIPALES
+   ========================================== */
+.wrap {
+  max-width: 1000px;
+  margin: 0 auto;
+  padding: 2rem 1.5rem;
+}
+
+.hero {
+  display: grid;
+  grid-template-columns: 1.1fr 1fr;
+  align-items: center;
+  gap: 2rem;
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 2rem 1.5rem;
+}
+
+.lead {
+  font-size: 1.25rem;
+  max-width: 34ch;
+}
+
+.hero-logo {
+  width: 100%;
+  border-bottom: 8px solid var(--cyan);
+  border-radius: 0 0 50% 50% / 0 0 12% 12%;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+  gap: 1.5rem;
+}
+
+.detail {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 2.5rem;
+  align-items: start;
+}
+
+footer {
+  text-align: center;
+  padding: 2rem 1rem;
+  border-top: 6px solid var(--cyan);
+  margin-top: 2rem;
+}
+
+footer p {
+  margin: 0.2rem;
+}
+
+/* ==========================================
+   5. COMPONENTES UI (Botones, Tarjetas, Formularios)
+   ========================================== */
+.btn {
+  display: inline-block;
+  background: var(--pink);
+  color: #fff;
+  font: 600 1.1rem var(--font);
+  border: 0;
+  border-radius: 99px;
+  padding: 0.8rem 1.8rem;
+  text-decoration: none;
+  cursor: pointer;
+  box-shadow: 0 5px 0 var(--navy);
+  transition: transform 0.15s, box-shadow 0.15s;
+}
+
+.btn:hover {
+  transform: translateY(2px);
+  box-shadow: 0 3px 0 var(--navy);
+}
+
+.card {
+  display: block;
+  text-decoration: none;
+  background: #fff;
+  border: 5px solid #fff;
+  border-radius: 28px;
+  box-shadow: 0 0 0 3px var(--cyan), 8px 8px 0 var(--navy);
+  padding: 1rem;
+}
+
+.card:nth-child(even) {
+  box-shadow: 0 0 0 3px var(--pink), 8px 8px 0 var(--navy);
+}
+
+.card:hover {
+  transform: rotate(-1.5deg);
+}
+
+.card-link {
+  text-decoration: none;
+}
+
+.card-link:hover {
+  color: var(--pink);
+}
+
+.card .btn {
+  width: 100%;
+  margin-top: 0.8rem;
+  text-align: center;
+}
+
+.pic {
+  display: grid;
+  place-items: center;
+  font-size: 4.5rem;
+  height: 160px;
+  background: #e6f8fb;
+  border-radius: 20px;
+  margin-bottom: 0.8rem;
+}
+
+.big {
+  height: 320px;
+  font-size: 9rem;
+}
+
+.price {
+  color: var(--pink);
+  font-weight: 700;
+  font-size: 1.3rem;
+  margin: 0;
+}
+
+.chips {
+  display: flex;
+  gap: 0.6rem;
+  margin-bottom: 1.5rem;
+}
+
+.chips a {
+  padding: 0.3rem 1rem;
+  border: 2px solid var(--navy);
+  border-radius: 99px;
+  text-decoration: none;
+  text-transform: capitalize;
+}
+
+.chips a.on {
+  background: var(--navy);
+  color: #fff;
+}
+
+input[type="number"] {
+  font: inherit;
+  width: 4.5rem;
+  padding: 0.4rem;
+  border: 2px solid var(--navy);
+  border-radius: 12px;
+  color: var(--navy);
+  margin: 0 0.8rem 1rem 0.4rem;
+}
+
+.lines {
+  list-style: none;
+  padding: 0;
+}
+
+.lines li {
+  display: flex;
+  gap: 1rem;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0.8rem 0;
+  border-bottom: 2px dashed var(--cyan);
+  flex-wrap: wrap;
+}
+
+.lines form {
+  display: flex;
+  align-items: center;
+}
+
+.lines input {
+  margin: 0 0.5rem 0 0;
+}
+
+.link {
+  background: none;
+  border: 0;
+  font: inherit;
+  color: var(--pink);
+  text-decoration: underline;
+  cursor: pointer;
+}
+
+.total {
+  font-size: 1.4rem;
+}
+
+/* --- Elemento Line (Items de lista / carrito) --- */
+.line {
+  display: grid;
+  grid-template-columns: minmax(0, 260px) 1fr;
+  gap: 1.5rem;
+  align-items: center;
+  padding: 1.2rem;
+  margin-bottom: 1.5rem;
+  background: #fff;
+  border: 5px solid #fff;
+  border-radius: 28px;
+  box-shadow: 0 0 0 3px var(--cyan), 8px 8px 0 var(--navy);
+}
+
+.line h2 {
+  font-size: 1.5rem;
+  margin-bottom: 0.6rem;
+}
+
+.line label {
+  display: inline-flex;
+  flex-direction: column;
+  gap: 0.2rem;
+  margin: 0 1rem 0.8rem 0;
+  font-weight: 500;
+}
+
+.line select,
+.line input[type="number"] {
+  font: inherit;
+  padding: 0.4rem 0.6rem;
+  border: 2px solid var(--navy);
+  border-radius: 12px;
+  color: var(--navy);
+  background: #fff;
+  margin: 0;
+}
+
+.line-actions {
+  display: flex;
+  gap: 1.2rem;
+  flex-wrap: wrap;
+}
+
+/* ==========================================
+   6. CARRUSEL
+   ========================================== */
+.carousel {
+  position: relative;
+  margin-bottom: 0.8rem;
+}
+
+.track {
+  display: flex;
+  overflow-x: auto;
+  scroll-snap-type: x mandatory;
+  scroll-behavior: auto;
+  scrollbar-width: none;
+  border-radius: 20px;
+  background: #e6f8fb;
+}
+
+.track::-webkit-scrollbar {
+  display: none;
+}
+
+.slide {
+  flex: 0 0 100%;
+  scroll-snap-align: center;
+  margin: 0;
+  position: relative;
+}
+
+.slide img {
+  width: 100%;
+  height: 200px;
+  object-fit: contain;
+  display: block;
+}
+
+.slide .pic {
+  margin: 0;
+}
+
+.slide figcaption {
+  position: absolute;
+  left: 50%;
+  bottom: 0.5rem;
+  transform: translateX(-50%);
+  background: var(--pink);
+  color: #fff;
+  font-weight: 600;
+  font-size: 0.9rem;
+  padding: 0.15rem 0.9rem;
+  border-radius: 99px;
+}
+
+.nav {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 2.2rem;
+  height: 2.2rem;
+  border: 0;
+  border-radius: 50%;
+  background: #fff;
+  color: var(--navy);
+  font-size: 1.5rem;
+  line-height: 1;
+  cursor: pointer;
+  box-shadow: 0 2px 0 var(--navy);
+}
+
+.prev {
+  left: 0.4rem;
+}
+
+.next {
+  right: 0.4rem;
+}
+.carousel.single
+{background:#e6f8fb;
+  border-radius:20px
+}
+.carousel.single .slide img{
+  height:200px
+}
+.btn.ghost{background:#fff;color:var(--navy);border:3px solid var(--navy);box-shadow:0 5px 0 var(--cyan)}
+.btn.ghost:hover{box-shadow:0 3px 0 var(--cyan)}
+.cart-actions{display:flex;gap:1rem;flex-wrap:wrap}
+.pay-note{background:#e6f8fb;border:3px dashed var(--cyan);border-radius:20px;padding:.8rem 1.2rem;max-width:520px}
+.wholesale{margin-top:3rem;padding:1.8rem;background:#fff;border:5px solid #fff;border-radius:28px;box-shadow:0 0 0 3px var(--pink),8px 8px 0 var(--navy)}
+.wholesale p{max-width:55ch}
+.wa-float{position:fixed;right:1rem;bottom:1rem;z-index:20;background:#25d366;color:#fff;font:600 1.05rem var(--font);text-decoration:none;padding:.7rem 1.2rem;border-radius:99px;box-shadow:0 4px 0 var(--navy)}
+.wa-float:hover{transform:translateY(2px);box-shadow:0 2px 0 var(--navy)}
+.announce{
+  display:flex;flex-wrap:wrap;justify-content:center;align-items:center;gap:.7rem;
+  max-width:880px;margin:1rem auto 0;padding:.9rem 1.2rem;
+  background:#fff;border:5px solid #fff;border-radius:28px;
+  box-shadow:0 0 0 3px var(--cyan),8px 8px 0 var(--navy);
+  transform:rotate(-1deg);
+  font:600 1.05rem var(--font);color:var(--navy);
+}
+.chip{display:inline-block;padding:.4rem 1.1rem;border-radius:99px;color:#fff;text-align:center}
+.chip-pink{background:var(--pink)}
+.chip-cyan{background:var(--cyan);color:var(--navy)}
+@media(max-width:720px){
+  .announce{margin:1rem 1rem 0;transform:none;flex-direction:column;gap:.5rem}
+  .chip{width:100%}
+}
+
+/* ==========================================
+   7. MEDIA QUERIES
+   ========================================== */
+@media (max-width: 720px) {
+  .hero,
+  .detail,
+  .line {
+    grid-template-columns: 1fr;
+  }
+
+  .hero-logo {
+    order: -1;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  * {
+    transition: none !important;
+  }
+}

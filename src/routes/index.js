@@ -1,0 +1,15 @@
+import { Router } from 'express';
+import * as pages from '../controllers/pages.controller.js';
+import * as products from '../controllers/products.controller.js';
+import * as cart from '../controllers/cart.controller.js';
+const r = Router();
+r.get('/', pages.home);
+r.get('/contacto', pages.contact);
+r.get('/productos', products.list);
+r.get('/productos/:id', products.show);
+r.get('/carrito', cart.view);
+r.post('/carrito/agregar/:id', cart.add);
+r.post('/carrito/guardar', cart.save);
+r.post('/carrito/duplicar/:uid', cart.duplicate);
+r.post('/carrito/quitar/:uid', cart.remove);
+export default r;

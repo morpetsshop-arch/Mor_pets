@@ -1,0 +1,6 @@
+<%- include('partials/head') %>
+<section class="wrap"><h1>Productos</h1>
+<div class="chips"><a class="<%= !category ? 'on' : '' %>" href="/productos">Todos</a><% categories.forEach(c => { %><a class="<%= c === category ? 'on' : '' %>" href="/productos?categoria=<%= c %>"><%= c %></a><% }) %></div>
+<% if (!products.length) { %><p>No hay productos en esta categoría todavía.</p><% } %>
+<div class="grid"><% products.forEach(p => { %><%- include('partials/card', { p }) %><% }) %></div></section>
+<%- include('partials/foot') %>
